@@ -153,6 +153,7 @@ impl TextEmbedding {
             EmbeddingModel::AllMiniLML12V2 => Some(Pooling::Mean),
             EmbeddingModel::AllMiniLML12V2Q => Some(Pooling::Mean),
 
+            EmbeddingModel::BGEM3 => Some(Pooling::Cls),
             EmbeddingModel::BGEBaseENV15 => Some(Pooling::Cls),
             EmbeddingModel::BGEBaseENV15Q => Some(Pooling::Cls),
             EmbeddingModel::BGELargeENV15 => Some(Pooling::Cls),
@@ -207,6 +208,7 @@ impl TextEmbedding {
         match model_name {
             EmbeddingModel::AllMiniLML6V2Q => QuantizationMode::Dynamic,
             EmbeddingModel::AllMiniLML12V2Q => QuantizationMode::Dynamic,
+            EmbeddingModel::BGEM3 => QuantizationMode::Static,
             EmbeddingModel::BGEBaseENV15Q => QuantizationMode::Static,
             EmbeddingModel::BGELargeENV15Q => QuantizationMode::Static,
             EmbeddingModel::BGESmallENV15Q => QuantizationMode::Static,
